@@ -23,5 +23,22 @@
     <script src="sketch.js"></script>
     <script src="grid.js"></script>
     <script src="car.js"></script>
+    <script>
+        // Complete restart of the simulation every 10 seconds
+        setInterval(function() {
+            if (typeof setup === 'function') {
+                // Reset all simulation variables to their initial state
+                grid = null;
+                cars = [];
+                nextCarId = 1;
+                carsToAdd = NUM_CARS;
+                lastSpawnTime = 0;
+                simulationStarted = false;
+                
+                // Call setup to completely reinitialize everything
+                setup();
+            }
+        }, 10000);
+    </script>
 </body>
 </html>
